@@ -1,0 +1,12 @@
+from os.path import join
+from os import listdir, rmdir
+from shutil import move
+import os 
+
+root = os.getcwd()
+folder = os.listdir(os.getcwd())
+folder = [x for x in folder if os.path.isdir(x)]
+
+for foldername in folder:
+  for file in listdir(os.path.join(root, foldername)):
+    move(join(root, foldername , file), join(root, file ))
